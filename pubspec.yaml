@@ -1,0 +1,29 @@
+name: food_delivery_app
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_svg: ^2.0.9
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+  fonts:
+  - family: Dance
+    fonts:
+      - asset: lib/fonts/Teko-VariableFont_wght.ttf
+  assets:
+    - assets/
+
+
+
