@@ -18,8 +18,10 @@ class _MainStateState extends State<MainState> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(245, 245, 248, 10),
       appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(100),
-          child: AppBar(
+          preferredSize: const Size.fromHeight(70),
+          child: AppBar(actions: [
+            Padding(padding:const EdgeInsets.fromLTRB(0, 15, 25, 0),child: Icon(currentIndex==0 ? Icons.shopping_cart_checkout_outlined: Icons.question_mark,color: Colors.black54,))
+          ],
             leading: const Icon(Icons.list_outlined),
             elevation: 0,
             centerTitle: true,
@@ -40,9 +42,9 @@ class _MainStateState extends State<MainState> {
               appBarTitle = "Home";
             } else if (currentIndex == 1) {
               appBarTitle = "Favorites";
-            } else if (currentIndex == 1) {
+            } else if (currentIndex == 2) {
               appBarTitle = "Profile";
-            } else if (currentIndex == 1) {
+            } else if (currentIndex == 3) {
               appBarTitle = "History";
             }
             setState(() {});

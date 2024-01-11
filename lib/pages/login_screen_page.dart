@@ -71,7 +71,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
           IndexedStack(
             index: currentIndex,
             children: [
-              Container(
+              SizedBox(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(40, 0, 40, 20),
                   child: Column(

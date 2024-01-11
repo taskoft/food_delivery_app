@@ -6,7 +6,7 @@ class OpeningPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint("OPENING PAGE BUILD");
+   
     return Scaffold(
       backgroundColor: Colors.grey.shade600,
       // const Color.fromRGBO(255, 75, 58, 100),
