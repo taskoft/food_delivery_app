@@ -26,10 +26,11 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
               const SizedBox(
                 height: 50,
               ),
-              const Icon(
-                Icons.ac_unit_outlined,
-                color: Color.fromRGBO(255, 75, 58, 100),
-                size: 180,
+              Image.asset(
+                "assets/cheff.png",
+                width: 200,
+                height: 200,
+                fit: BoxFit.contain,
               ),
               const SizedBox(
                 height: 20,
@@ -118,7 +119,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                                   fontWeight: FontWeight.w600),
                             )),
                         const SizedBox(
-                          height: 160,
+                          height: 100,
                         ),
                         MyBottomTextButton(
                             text: 'Login',
@@ -131,8 +132,52 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                       ]),
                 ),
               ),
-              const Center(
-                child: Text("INDEX 1"),
+              //INDEX1
+              SizedBox(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(40, 0, 40, 20),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Divider(
+                            color: Color.fromRGBO(255, 75, 58, 100),
+                            endIndent: 40,
+                            thickness: 4,
+                            indent: 160),
+                        const SizedBox(
+                          height: 40,
+                        ),
+                        const Text("Email address",
+                            style:
+                                TextStyle(fontSize: 16, color: Colors.black45)),
+                        const TextField(style: TextStyle(fontSize: 20)),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        const Text("Password",
+                            style:
+                                TextStyle(fontSize: 16, color: Colors.black45)),
+                        const TextField(
+                          style: TextStyle(fontSize: 16),
+                          obscureText: true,
+                          enableSuggestions: false,
+                          autocorrect: false,
+                        ),
+                        const SizedBox(height: 15,),
+                        const Text("Adress",
+                            style:
+                                TextStyle(fontSize: 16, color: Colors.black45)),
+                        const TextField(
+                          style: TextStyle(fontSize: 16),
+                         
+                        ),
+                        const SizedBox(
+                          height: 100,
+                        ),
+                        MyBottomTextButton(text: 'Sign Up', onPressed: () {}),
+                      ]),
+                ),
               ),
             ],
           )

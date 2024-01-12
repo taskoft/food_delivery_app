@@ -11,9 +11,9 @@ class MealCart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8),
-      child: SizedBox(
+      child: Container(
         height: 200,
-        width: 220,
+        width: 180,
         child: Stack(
           children: [
             Positioned(
@@ -22,7 +22,7 @@ class MealCart extends StatelessWidget {
               right: 0,
               bottom: 0,
               child: Container(
-                width: 220,
+                width: 180,
                 height: 220,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
@@ -31,19 +31,31 @@ class MealCart extends StatelessWidget {
                 child: Column(
                   children: [
                     const SizedBox(
-                      height: 80,
+                      height: 100,
                     ),
                     SizedBox(
-                        height: 100,
-                        width: 180,
+                      height: 90,
+                      width: 165,
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => CardDetailPage(
+                                      id: id,
+                                    )),
+                          );
+                        },
                         child: Text(
                           mealName,
                           textAlign: TextAlign.center,
                           style: const TextStyle(
-                            fontSize: 35,
+                            fontSize: 28,
                           ),
                           maxLines: 2,
-                        )),
+                        ),
+                      ),
+                    ),
                     Text(
                       "€ $mealPrice",
                       maxLines: 1,
@@ -59,10 +71,10 @@ class MealCart extends StatelessWidget {
                 left: 10,
                 right: 10,
                 child: Image.asset(
-                  "assets/test_image.png",
+                  "assets/test_meal_image.png",
                   fit: BoxFit.contain,
-                  height: 130,
-                  width: 80,
+                  height: 190,
+                  width: 130,
                 )
                 //SVG EKRANA GORUNTUSU GELMIYOR SVG NIN
                 //SvgPicture.asset("assets/test_svg.svg",alignment:Alignment.center  ,fit: BoxFit.contain,),

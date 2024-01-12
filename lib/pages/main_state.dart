@@ -19,9 +19,17 @@ class _MainStateState extends State<MainState> {
       backgroundColor: const Color.fromRGBO(245, 245, 248, 10),
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(70),
-          child: AppBar(actions: [
-            Padding(padding:const EdgeInsets.fromLTRB(0, 15, 25, 0),child: Icon(currentIndex==0 ? Icons.shopping_cart_checkout_outlined: Icons.question_mark,color: Colors.black54,))
-          ],
+          child: AppBar(
+            actions: [
+              Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 15, 25, 0),
+                  child: Icon(
+                    currentIndex == 0
+                        ? Icons.shopping_cart_checkout_outlined
+                        : Icons.question_mark,
+                    color: Colors.black54,
+                  ))
+            ],
             leading: const Icon(Icons.list_outlined),
             elevation: 0,
             centerTitle: true,
@@ -57,7 +65,10 @@ class _MainStateState extends State<MainState> {
           unselectedItemColor: const Color.fromARGB(255, 3, 3, 3),
           selectedItemColor: const Color.fromRGBO(250, 74, 12, 40),
           items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: "",
+                backgroundColor: Colors.transparent),
             BottomNavigationBarItem(
                 icon: Icon(Icons.favorite_border_outlined), label: ""),
             BottomNavigationBarItem(
