@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/pages/cart_page.dart';
+import 'package:food_delivery_app/pages/history_page.dart';
 
 import 'home_page.dart';
 
@@ -62,19 +64,30 @@ class _MainStateState extends State<MainState> {
           backgroundColor: const Color(0x00ffffff),
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          unselectedItemColor: const Color.fromARGB(255, 3, 3, 3),
+          unselectedItemColor: Color.fromARGB(255, 126, 124, 124),
           selectedItemColor: const Color.fromRGBO(250, 74, 12, 40),
           items: const [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home),
+              icon: Icon(Icons.home),
+              label: "",
+              backgroundColor: Colors.transparent,
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.favorite_border_outlined),
                 label: "",
                 backgroundColor: Colors.transparent),
             BottomNavigationBarItem(
-                icon: Icon(Icons.favorite_border_outlined), label: ""),
+                icon: Icon(Icons.person_outline),
+                label: "",
+                backgroundColor: Colors.transparent),
             BottomNavigationBarItem(
-                icon: Icon(Icons.man_2_outlined), label: ""),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.history_edu_outlined), label: "")
+                icon: Icon(Icons.history),
+                label: "",
+                backgroundColor: Colors.transparent),
+                 BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_bag_outlined),
+                label: "",
+                backgroundColor: Colors.transparent),
           ]),
       body: IndexedStack(
         index: currentIndex,
@@ -82,7 +95,8 @@ class _MainStateState extends State<MainState> {
           HomePage(),
           Text("FAVORITES PAGE"),
           Text("PROFILE PAGE"),
-          Text("HISTORY PAGE")
+          HistoryPage(),
+         CartPage(),
         ],
       ),
     );
