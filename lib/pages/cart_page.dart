@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/pages/delivery_page.dart';
 import 'package:food_delivery_app/widgets/bottom_text_button.dart';
 import 'package:food_delivery_app/widgets/meal_dissmissible_card.dart';
 
@@ -111,7 +112,14 @@ class _CartPageState extends State<CartPage> {
                 }),
           ),
         ),
-        MyBottomTextButton(text: "Complete order", onPressed: () {})
+        MyBottomTextButton(
+            text: "Complete order",
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const DeliveryPage()));
+            })
       ],
     );
   }
