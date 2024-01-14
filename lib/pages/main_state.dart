@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/pages/cart_page.dart';
 import 'package:food_delivery_app/pages/history_page.dart';
+import 'package:food_delivery_app/widgets/drawer.dart';
 
 import 'home_page.dart';
 
@@ -18,31 +19,45 @@ class _MainStateState extends State<MainState> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      /*  drawer: Drawer(
+        backgroundColor: const Color.fromRGBO(250, 74, 12, 100),
+        child: ListView(
+          children: const [
+            Row(
+              children: [Icon(Icons.person), Text("Profile")],
+            ),
+            Divider(),
+          ],
+        ),
+      ),*/
       backgroundColor: const Color.fromRGBO(245, 245, 248, 10),
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(70),
-          child: AppBar(
-            actions: [
-              Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 15, 25, 0),
-                  child: Icon(
-                    currentIndex == 0
-                        ? Icons.shopping_cart_checkout_outlined
-                        : Icons.question_mark,
-                    color: Colors.black54,
-                  ))
-            ],
-            leading: const Icon(Icons.list_outlined),
-            elevation: 0,
-            centerTitle: true,
-            title: Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: Text(
-                  appBarTitle,
-                  style: const TextStyle(fontSize: 33),
-                )),
-            backgroundColor: const Color(0x00ffffff),
-            // centerTitle: true,
+          child: Visibility(
+            visible: currentIndex != 0 ? true : false,
+            child: AppBar(
+              /* actions: [
+                Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 15, 25, 0),
+                    child: Icon(
+                      currentIndex == 0
+                          ? Icons.shopping_cart_checkout_outlined
+                          : Icons.question_mark,
+                      color: Colors.black54,
+                    )),
+              ],*/
+              // leading: const Icon(Icons.list_outlined),
+              elevation: 0,
+              centerTitle: true,
+              title: Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Text(
+                    appBarTitle,
+                    style: const TextStyle(fontSize: 33),
+                  )),
+              backgroundColor: const Color(0x00ffffff),
+              // centerTitle: true,
+            ),
           )),
       bottomNavigationBar: BottomNavigationBar(
           onTap: (newIndex) {
@@ -77,14 +92,10 @@ class _MainStateState extends State<MainState> {
                 label: "",
                 backgroundColor: Colors.transparent),
             BottomNavigationBarItem(
-                icon: Icon(Icons.person_outline),
-                label: "",
-                backgroundColor: Colors.transparent),
-            BottomNavigationBarItem(
                 icon: Icon(Icons.history),
                 label: "",
                 backgroundColor: Colors.transparent),
-                 BottomNavigationBarItem(
+            BottomNavigationBarItem(
                 icon: Icon(Icons.shopping_bag_outlined),
                 label: "",
                 backgroundColor: Colors.transparent),
@@ -92,11 +103,12 @@ class _MainStateState extends State<MainState> {
       body: IndexedStack(
         index: currentIndex,
         children: const [
-          HomePage(),
+          Stack(
+            children: [DrawerWidget(), HomePage()],
+          ),
           Text("FAVORITES PAGE"),
-          Text("PROFILE PAGE"),
           HistoryPage(),
-         CartPage(),
+          CartPage(),
         ],
       ),
     );
