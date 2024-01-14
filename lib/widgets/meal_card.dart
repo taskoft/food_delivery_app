@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_delivery_app/pages/card_detail_page.dart';
 
 class MealCart extends StatelessWidget {
@@ -11,7 +10,7 @@ class MealCart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8),
-      child: Container(
+      child: SizedBox(
         height: 200,
         width: 180,
         child: Stack(

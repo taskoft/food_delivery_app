@@ -68,9 +68,9 @@ class _MainStateState extends State<MainState> {
             } else if (currentIndex == 1) {
               appBarTitle = "Favorites";
             } else if (currentIndex == 2) {
-              appBarTitle = "Profile";
-            } else if (currentIndex == 3) {
               appBarTitle = "History";
+            } else if (currentIndex == 3) {
+              appBarTitle = "Cart";
             }
             setState(() {});
           },
@@ -79,7 +79,7 @@ class _MainStateState extends State<MainState> {
           backgroundColor: const Color(0x00ffffff),
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          unselectedItemColor: Color.fromARGB(255, 126, 124, 124),
+          unselectedItemColor:const Color.fromARGB(255, 126, 124, 124),
           selectedItemColor: const Color.fromRGBO(250, 74, 12, 40),
           items: const [
             BottomNavigationBarItem(

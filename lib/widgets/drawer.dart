@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/pages/privacy_policy_page.dart';
+import 'package:food_delivery_app/pages/profile_page.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({super.key});
@@ -12,7 +13,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color.fromRGBO(250, 74, 12, 80),
+      color: const Color.fromRGBO(250, 74, 12, 10),
       child: Padding(
         padding: const EdgeInsets.only(left: 25),
         child: Column(
@@ -30,7 +31,12 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 Padding(
                   padding: const EdgeInsets.only(left: 10.0),
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Profile()));
+                    },
                     child: const Text(
                       "Profile",
                       style: TextStyle(fontSize: 32, color: Colors.white),

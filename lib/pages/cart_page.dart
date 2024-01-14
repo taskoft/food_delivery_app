@@ -12,11 +12,11 @@ class CartPage extends StatefulWidget {
 
 class _CartPageState extends State<CartPage> {
   List<Widget> myCardList = [
-    MealDissmissibleCard(),
-    MealDissmissibleCard(),
-    MealDissmissibleCard(),
-    MealDissmissibleCard(),
-    MealDissmissibleCard(),
+    const MealDissmissibleCard(),
+    const MealDissmissibleCard(),
+    const MealDissmissibleCard(),
+    const MealDissmissibleCard(),
+    const MealDissmissibleCard(),
   ];
 
   @override
