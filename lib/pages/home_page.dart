@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/pages/meals_page.dart';
 import 'package:food_delivery_app/widgets/meal_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(isDrawerOpen? 40:0),
+        borderRadius: BorderRadius.circular(isDrawerOpen ? 40 : 0),
         color: const Color.fromRGBO(245, 245, 248, 10),
       ),
       transform: Matrix4.translationValues(xOffset, yOffset, 0)
@@ -32,7 +33,10 @@ class _HomePageState extends State<HomePage> {
           ),
           isDrawerOpen
               ? IconButton(
-                  icon: const Icon(Icons.arrow_back_sharp,size: 40,),
+                  icon: const Icon(
+                    Icons.arrow_back_sharp,
+                    size: 40,
+                  ),
                   onPressed: () {
                     setState(
                       () {
@@ -167,7 +171,14 @@ class _HomePageState extends State<HomePage> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 280),
-            child: TextButton(onPressed: () {}, child: const Text("See More")),
+            child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MealsPage()));
+                },
+                child: const Text("See More")),
           ),
           IndexedStack(
             index: currentIndex,
