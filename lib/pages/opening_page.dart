@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_delivery_app/repository/auth/login/login_repository.dart';
 import 'login_screen_page.dart';
 
 class OpeningPage extends StatelessWidget {
@@ -78,10 +80,18 @@ class OpeningPage extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (context) => const LoginScreenPage()),
                   );*/
-                  Navigator.pushAndRemoveUntil(
+                  /* Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const LoginScreenPage()),
+                      (route) => false);*/
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => RepositoryProvider(
+                                create: ((context) => LoginRepository()),
+                                child: const LoginScreenPage(),
+                              )),
                       (route) => false);
                 },
                 child: const Text(
