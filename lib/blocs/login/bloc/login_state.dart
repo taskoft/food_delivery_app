@@ -1,11 +1,13 @@
 part of 'login_bloc.dart';
 
- class LoginState extends Equatable {
+class LoginState extends Equatable {
   final String userName;
+  bool get isValidUsername => userName.length > 3;
   final String userPassword;
+  bool get isValidPassword => userPassword.length > 6;
   final FormSubmissionStatus formStatus;
   //final String? token;
- 
+
   const LoginState(
       {this.userName = "",
       this.userPassword = "",
@@ -23,8 +25,7 @@ part of 'login_bloc.dart';
   }
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [userName, userPassword, formStatus];
 }
 
 final class LoginInitialState extends LoginState {}
-

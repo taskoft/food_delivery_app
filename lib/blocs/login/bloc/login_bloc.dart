@@ -1,5 +1,7 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:equatable/equatable.dart';
+import 'package:food_delivery_app/locator.dart';
 import 'package:food_delivery_app/repository/auth/login/login_repository.dart';
 import 'package:food_delivery_app/repository/auth/register/form_submission_status.dart';
 
@@ -7,21 +9,31 @@ part 'login_event.dart';
 part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  final LoginRepository? authRepo;
+  LoginRepository? authRepo = locator<LoginRepository>();
+
   LoginBloc({this.authRepo}) : super(const LoginState()) {
-    on<LoginEvent>(_loginEvent);
+    on<LoginSubmittedEvent>(_loginSubmittedEvent);
     on<LoginUsernameChangedEvent>(_loginUsernameChanged);
     on<LoginPasswordChangedEvent>(_loginPasswordChanged);
   }
 
+  void _loginSubmittedEvent(LoginEvent event, Emitter<LoginState> emit) async {
+    emit(state.copyWrite(formStatus: FormSubmitting()));
+    try {
+      await authRepo?.login();
+      emit(state.copyWrite(formStatus: FormSubmissionSuccess()));
+    } catch (e) {
+      emit(state.copyWrite(formStatus: FormSubmissionFailed(e)));
+    }
+  }
 
-
-  void _loginEvent(LoginEvent event, Emitter<LoginState> emit) async {}
   void _loginUsernameChanged(
       LoginUsernameChangedEvent event, Emitter<LoginState> emit) async {
     emit(state.copyWrite(userName: event.userName));
   }
 
   void _loginPasswordChanged(
-      LoginPasswordChangedEvent event, Emitter<LoginState> emit) async {}
+      LoginPasswordChangedEvent event, Emitter<LoginState> emit) async {
+    emit(state.copyWrite(userPassword: event.password));
+  }
 }
