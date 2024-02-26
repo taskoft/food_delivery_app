@@ -20,7 +20,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   void _loginSubmittedEvent(LoginEvent event, Emitter<LoginState> emit) async {
     emit(state.copyWrite(formStatus: FormSubmitting()));
     try {
-      await authRepo?.login();
+      await authRepo?.loginCall(
+          email: state.email, password: state.userPassword);
       emit(state.copyWrite(formStatus: FormSubmissionSuccess()));
     } catch (e) {
       emit(state.copyWrite(formStatus: FormSubmissionFailed(e)));
@@ -29,7 +30,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   void _loginUsernameChanged(
       LoginUsernameChangedEvent event, Emitter<LoginState> emit) async {
-    emit(state.copyWrite(userName: event.userName));
+    emit(state.copyWrite(userName: event.email));
   }
 
   void _loginPasswordChanged(

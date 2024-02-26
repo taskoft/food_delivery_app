@@ -1,15 +1,17 @@
+// ignore_for_file: unnecessary_this
+
 part of 'login_bloc.dart';
 
 class LoginState extends Equatable {
-  final String userName;
-  bool get isValidUsername => userName.length > 3;
+  final String email;
+  bool get isValidUsername => email.length > 3;
   final String userPassword;
-  bool get isValidPassword => userPassword.length > 6;
+  bool get isValidPassword => userPassword.length > 5;
   final FormSubmissionStatus formStatus;
   //final String? token;
 
   const LoginState(
-      {this.userName = "",
+      {this.email = "",
       this.userPassword = "",
       this.formStatus = const InitialFormStatus()});
 
@@ -18,14 +20,14 @@ class LoginState extends Equatable {
       String? userPassword,
       FormSubmissionStatus? formStatus}) {
     return LoginState(
-      userName: userName ?? this.userName,
+      email: userName ?? this.email,
       userPassword: userPassword ?? this.userPassword,
       formStatus: formStatus ?? this.formStatus,
     );
   }
 
   @override
-  List<Object> get props => [userName, userPassword, formStatus];
+  List<Object> get props => [email, userPassword, formStatus];
 }
 
 final class LoginInitialState extends LoginState {}

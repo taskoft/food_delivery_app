@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/login/bloc/login_bloc.dart';
 
-class UsernameTextfield extends StatelessWidget {
-  const UsernameTextfield({super.key});
+class UserEmailTextfield extends StatelessWidget {
+  const UserEmailTextfield({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class UsernameTextfield extends StatelessWidget {
               state.isValidUsername ? null : "Username is too short",
           onChanged: (value) => context
               .read<LoginBloc>()
-              .add(LoginUsernameChangedEvent(userName: value)),
+              .add(LoginUsernameChangedEvent(email: value)),
         );
       },
     );

@@ -3,12 +3,12 @@ part of 'login_bloc.dart';
 sealed class LoginEvent extends Equatable {}
 
 class LoginUsernameChangedEvent extends LoginEvent {
-  final String? userName;
+  final String? email;
 
-  LoginUsernameChangedEvent({required this.userName});
+  LoginUsernameChangedEvent({required this.email});
 
   @override
-  List<Object?> get props => [userName];
+  List<Object?> get props => [email];
 }
 
 class LoginPasswordChangedEvent extends LoginEvent {

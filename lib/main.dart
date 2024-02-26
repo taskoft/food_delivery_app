@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/locator.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'pages/opening_page.dart';
 
-void main() {
+void main() async {
   setupLocator();
+  await GetStorage.init();
   runApp(const MainApp());
 }
 
